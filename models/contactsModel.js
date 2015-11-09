@@ -1,10 +1,14 @@
 
 var Sequelize = require('sequelize');
 
-var sequelize = new Sequelize('test', 'dev', 'juiAwate', {
+// dev version
+/*var sequelize = new Sequelize('test', 'dev', 'juiAwate', {
     host: 'localhost',
     dialect: 'mysql'
-});
+});*/
+
+// production version
+var sequelize = new Sequelize(process.env.CLEARDB_DATABASE_URL);
 
 var Contact = sequelize.define('contact', {
     firstName: {
