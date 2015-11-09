@@ -8,7 +8,9 @@ var Sequelize = require('sequelize');
 });*/
 
 // production version
-var sequelize = new Sequelize(process.env.CLEARDB_DATABASE_URL);
+var sequelize = new Sequelize('heroku_cf353dd6d71fd46', 'b992ca7b958b4e', '07357984', {
+    host: 'us-cdbr-iron-east-03.cleardb.net'
+});
 
 var Contact = sequelize.define('contact', {
     firstName: {

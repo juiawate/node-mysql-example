@@ -12,6 +12,8 @@ angular.module('contactsApp',[]).controller('ContactsController', ['$scope', 'co
     $scope.addContact = function () {
         contactsService.add($scope.contact).success(function (data) {
             $scope.contacts.push(data.contact);
+            $scope.contact = {};
+            $scope.showAddForm = false;
         });
     }
 }]).factory('contactsService', ['$http', function ($http) {

@@ -25,7 +25,7 @@
           </tbody>
         </table>
 
-        <button ng-click="showAddForm = !showAddForm">Add new contact</button>
+        <button ng-click="showAddForm = !showAddForm" ng-hide="showAddForm">Add new contact</button>
         <form name="contactForm" ng-show="showAddForm">
           <input type="text" name="firstname" ng-model="contact.firstName" placeholder="first name"/>
           <input type="text" name="lastname" ng-model="contact.lastName" placeholder="last name"/>
