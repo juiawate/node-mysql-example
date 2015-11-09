@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="contactsApp">
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/base.css' />
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css"/>
+  </head>
+  <body>
+
+    <div ng-controller="ContactsController">
+        <h3>Contacts</h3>
+
+        <table class="table table-striped">
+          <thead>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone</th>
+          </thead>
+          <tbody>
+            <tr ng-repeat="c in contacts track by $index">
+              <td>{{c.firstName}}</td>
+              <td>{{c.lastName}}</td>
+              <td>{{c.phone}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button ng-click="showAddForm = !showAddForm">Add new contact</button>
+        <form name="contactForm" ng-show="showAddForm">
+          <input type="text" name="firstname" ng-model="contact.firstName" placeholder="first name"/>
+          <input type="text" name="lastname" ng-model="contact.lastName" placeholder="last name"/>
+          <input type="text" name="phone" ng-model="contact.phone" placeholder="phone"/>
+          <button ng-click="addContact(contact)">Add</button>
+        </form>
+    </div>
+
+    <script src="/angular/angular.js"></script>
+    <script src="/jquery/dist/jquery.js"></script>
+    <script src="/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/app/app.js"></script>
+  </body>
+</html>
